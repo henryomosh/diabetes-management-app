@@ -1,7 +1,11 @@
-import { Inter, Lusitana } from "next/font/google";
+import { Inter, Lusitana, Roboto, Poppins } from "next/font/google";
 
 export const inter = Inter({ subsets: ["latin"] });
 export const lusitana = Lusitana({
   weight: ["400", "700"],
-  subsets: ["latin"],
+  subsets: ["latin"]
+});
+
+export const poppins = Poppins({
+  weight: ["400", "500", "700"]
 });

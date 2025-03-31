@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
   //  experimental: {
   //  ppr: "incremental"
   // }
+  devIndicators: false
 };
 
 export default nextConfig;
