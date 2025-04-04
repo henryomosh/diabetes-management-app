@@ -28,9 +28,8 @@ export default function Page() {
           </p>
           <div>
             <p className="text-base text-gray-800 md:text-lg">
-              Cloud-based web app for people with diabetes and pre-diabetes.
-              Real-time monitoring platform for medical practitioners and
-              patients.{" "}
+              Cloud-based web app for people with Type 2 Diabetes. Real-time
+              monitoring platform for medical practitioners and patients.{" "}
             </p>
           </div>
           <Link
@@ -45,7 +44,9 @@ export default function Page() {
           style={{
             backgroundImage: `url(${bg.src})`,
             width: "100%",
-            height: "100%"
+            height: "100%",
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat"
           }}
         >
           {/* Add Hero Images Here */}
