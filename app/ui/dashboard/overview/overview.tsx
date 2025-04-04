@@ -14,7 +14,6 @@ import LatestData from "./latest-data";
 import Treatment from "./treatment";
 
 export default function Overview() {
-  const [selectedKeys, setSelectedKeys] = React.useState(new Set(["1"]));
   const itemClasses = {
     base: "py-0 w-full",
     title: "font-normal text-sm",
@@ -32,9 +31,8 @@ export default function Overview() {
       style={{ height: "31rem" }}
     >
       <Accordion
-        selectedKeys={selectedKeys}
+        defaultExpandedKeys={["1"]}
         itemClasses={itemClasses}
-        onSelectionChange={setSelectedKeys}
         showDivider={true}
         motionProps={{
           variants: {
