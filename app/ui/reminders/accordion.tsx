@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+
 import { Accordion, AccordionItem, Avatar, Button } from "@heroui/react";
 import {
   ChartPieIcon,
@@ -9,16 +9,28 @@ import {
   CircleStackIcon,
   ShieldExclamationIcon
 } from "@heroicons/react/20/solid";
+import {
+  SyringeIcon,
+  DropIcon,
+  ExerciseIcon,
+  MonitorPressureIcon,
+  BloodPressureIcon,
+  CarbsIcon,
+  CaloriesIcon,
+  CholestrolIcon,
+  MedicationIcon
+} from "@/app/ui/icons";
 import DoughnutChartWrapper from "@/app/ui/dashboard/overview/donut-chart";
 import LatestData from "@/app/ui/dashboard/overview/latest-data";
 import Treatment from "@/app/ui/dashboard/overview/treatment";
+import { ReminderAccordionItem } from "./accordion-items/accordion-item";
 
-export default function Overview() {
+export default function RemindersAccordion({ data }: { data?: any }) {
   const itemClasses = {
     base: "py-0 w-full",
     title: "font-normal text-sm",
     trigger:
-      " py-6 px-2 mb-2 mt-0 data-[hover=true]:bg-default-300 rounded-lg h-14 flex items-center bg-default-300 shadow-sm",
+      " py-6 px-2 mb-2 mt-0  rounded-lg h-14 flex items-center bg-slate-300 shadow-sm",
     indicator: "text-medium",
     content: "text-small px-2"
   };
@@ -27,13 +39,13 @@ export default function Overview() {
 
   return (
     <div
-      className="flex w-full flex-col md:col-span-5 overflow-y-auto"
-      style={{ height: "31rem" }}
+      className="flex w-full flex-col md:col-span-4 overflow-y-auto"
+      style={{ height: "40rem" }}
     >
       <Accordion
         defaultExpandedKeys={["1"]}
         itemClasses={itemClasses}
-        showDivider={true}
+        showDivider={false}
         motionProps={{
           variants: {
             enter: {
@@ -76,8 +88,8 @@ export default function Overview() {
         <AccordionItem
           key="1"
           aria-label="Chung Miller"
-          startContent={<ChartPieIcon className="w-6 text-green-600" />}
-          title="Glucose Overview"
+          startContent={<DropIcon className="w-6 h-6 fill-yellow-600" />}
+          title="Glucose"
           indicator={({ isOpen }) =>
             isOpen ? (
               <XMarkIcon className="w-5 text-black" />
@@ -86,9 +98,8 @@ export default function Overview() {
             )
           }
         >
-          <div className="grid grid-cols-3 gap-0">
-            <DoughnutChartWrapper />
-          </div>
+          <ReminderAccordionItem data={data} />
+          <div className="grid grid-cols-3 gap-0"></div>
         </AccordionItem>
         <AccordionItem
           key="2"
