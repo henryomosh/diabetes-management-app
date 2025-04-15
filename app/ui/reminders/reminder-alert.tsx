@@ -20,7 +20,7 @@ export default async function ReminderAlert() {
   const data = await fetchNotification();
 
   return (
-    <div className="flex flex-col gap-4 md:col-span-4 mx-4 overflow-y-auto ">
+    <div className="flex flex-col gap-4 md:col-span-4 mx-4  ">
       <div className="bg-slate-300 rounded-md  md:px-2 py-2 shadow-xl  mb-4 border-[#292f46]  ">
         <h1 className="text-2xl pb-2">Today</h1>
         {/*Alerts*/}

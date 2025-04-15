@@ -1,6 +1,6 @@
 // @ts-nocheck
 import { Alert } from "@heroui/react";
-import { fetchOtherData } from "@/app/lib/dashboard-fetch";
+import { fetchAlertToday, fetchOtherdays } from "@/app/lib/dashboard-fetch";
 import {
   PlusIcon,
   SyringeIcon,
@@ -15,7 +15,8 @@ import {
 } from "../../icons";
 
 export default async function StatusAlert() {
-  const others = await fetchOtherData();
+  const today = await fetchAlertToday();
+  const others = await fetchOtherdays();
   const labels = {
     hba1c: <MonitorPressureIcon className=" h-8 w-8  fill-blue-700 " />,
     bp: <BloodPressureIcon className="h-8 w-8   fill-cyan-700" />,
@@ -28,27 +29,58 @@ export default async function StatusAlert() {
   };
 
   return (
-    <div className="flex flex-col gap-4  ">
+    <div className="flex flex-col gap-4  pb-12 mb-12">
       <div className="bg-slate-300 rounded-md  md:px-2 py-2 shadow-xl  mb-4 border-[#292f46]  ">
         <h1 className="text-2xl pb-2">Today</h1>
-        {/*Alerts*/}
-        {others.map((other, index) => (
-          <div className="flex justify-between items-center mb-4" key={index}>
-            <div className="flex row">
-              <div className="flex items-center justify-center">
-                {labels[other.label]}
+        {/*Alerts Today*/}
+        <div className="h-full md:overflow-y-auto">
+          <p className="px-6 py-6">{today.length > 0 ? "" : "No data today"}</p>
+          {today.map((data, index) => (
+            <div
+              className="flex justify-between items-center mb-4 "
+              key={index}
+            >
+              <div className="flex row">
+                <div className="flex items-center justify-center">
+                  {labels[data.label]}
+                </div>
+                <div className="flex flex-col pl-2">
+                  <p className="text-sm  ">{data.name}</p>
+
+                  <p className="text-xs ">{data.time}</p>
+                </div>
               </div>
-              <div className="flex flex-col pl-2">
-                <p className="text-sm  ">{other.name}</p>
-                <p className="text-xs ">{other.time}</p>
+              <div className="flex flex-row justify-end">
+                <p className="text-xl  ">{data.amount}</p>
+                <p className="text-xs pt-2 px-1">{data.units}</p>
               </div>
             </div>
-            <div className="flex flex-row justify-end">
-              <p className="text-xl  ">{other.amount}</p>
-              <p className="text-xs pt-2 px-1">{other.units}</p>
+          ))}
+          <h1 className="text-2xl pb-2">Others</h1>
+          {others.map((other, index) => (
+            <div
+              className="flex justify-between items-center mb-4 "
+              key={index}
+            >
+              <div className="flex row">
+                <div className="flex items-center justify-center">
+                  {labels[other.label]}
+                </div>
+                <div className="flex flex-col pl-2">
+                  <p className="text-sm  ">{other.name}</p>
+                  <p className="text-xs ">
+                    {other.date.toLocaleString().split(",")[0]}
+                  </p>
+                  <p className="text-xs ">{other.time}</p>
+                </div>
+              </div>
+              <div className="flex flex-row justify-end">
+                <p className="text-xl  ">{other.amount}</p>
+                <p className="text-xs pt-2 px-1">{other.units}</p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );

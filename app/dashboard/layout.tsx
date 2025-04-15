@@ -16,7 +16,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </span>
           <UserDropdown />
         </div>
-        {children}
+        <div className="md:overflow-auto h-screen">{children}</div>
       </div>
     </div>
   );

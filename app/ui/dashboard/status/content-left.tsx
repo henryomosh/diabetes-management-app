@@ -11,7 +11,8 @@ import {
   Button,
   useDisclosure,
   Card,
-  CardBody
+  CardBody,
+  Spinner
 } from "@heroui/react";
 import { icons } from "./modal-icons";
 
@@ -19,7 +20,10 @@ export function ContentLeft({ idx }: { idx?: number }) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [selectedIndex, setSelectedIndex] = React.useState(0);
   const initialState: State = { message: null, errors: {} };
-  const [state, formAction] = useActionState(createOthers, initialState);
+  const [state, formAction, isLoading] = useActionState(
+    createOthers,
+    initialState
+  );
 
   return (
     <div className="flex w-full flex-col bg-slate-300 rounded-md  md:px-4 py-4 shadow-xl mx-2 mb-4 ">
@@ -83,8 +87,17 @@ export function ContentLeft({ idx }: { idx?: number }) {
                           </div>
                           <div className="flex justify-between my-4">
                             <div></div>
-                            <Button type="submit" color="warning">
-                              Save
+                            <Button
+                              className="px-12"
+                              type="submit"
+                              color="warning"
+                              isDisabled={isLoading}
+                            >
+                              {isLoading ? (
+                                <Spinner color="danger" size="md" />
+                              ) : (
+                                "Save"
+                              )}{" "}
                             </Button>
                           </div>
                         </form>
