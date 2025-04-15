@@ -7,8 +7,9 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { signIn } from "@/auth";
 import { AuthError } from "next-auth";
+import sql from "./db";
 
-const sql = postgres(process.env.POSTGRES_URL!, { ssl: "require" });
+// const sql = postgres(process.env.POSTGRES_URL!, { ssl: "require" });
 const FormSchema = z.object({
   amount: z.coerce
     .number()

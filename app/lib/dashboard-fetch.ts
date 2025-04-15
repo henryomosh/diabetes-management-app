@@ -1,7 +1,9 @@
 import postgres from "postgres";
 import { OtherTable } from "./dashboard-definations";
+import { NextResponse } from "next/server";
+import sql from "./db";
 
-const sql = postgres(process.env.POSTGRES_URL!, { ssl: "require" });
+// const sql = postgres(process.env.POSTGRES_URL!, { ssl: "require" });
 
 export async function fetchOtherData() {
   try {
@@ -123,6 +125,35 @@ export async function FetchGlucose() {
       TodayAEvening,
       TodayNight
     ]);
+    return data;
+  } catch (error) {
+    console.error("Database Error:", error);
+    throw new Error("Failed to fetch data.");
+  }
+}
+
+export async function fetchAlertToday() {
+  try {
+    const data =
+      await sql`SELECT * FROM others WHERE date > NOW() - '1 day':: INTERVAL  ORDER BY time DESC`;
+
+    return data;
+  } catch (error) {
+    console.error("Database Error:", error);
+    throw new Error("Failed to fetch data.");
+  }
+}
+
+export async function fetchOtherdays() {
+  const today = new Date();
+  const today_string = new Date().toISOString().split("T")[0];
+  const yesterday = new Date(today);
+  yesterday.setDate(today.getDate() - 1);
+  const yesterday_string = new Date(yesterday).toISOString().split("T")[0];
+
+  try {
+    const data =
+      await sql`SELECT * FROM others WHERE date < NOW() - '1 day':: INTERVAL ORDER BY date DESC`;
     return data;
   } catch (error) {
     console.error("Database Error:", error);

@@ -39,8 +39,8 @@ export default function RemindersAccordion({ data }: { data?: any }) {
 
   return (
     <div
-      className="flex w-full flex-col md:col-span-4 overflow-y-auto"
-      style={{ height: "40rem" }}
+      className="flex w-full flex-col md:col-span-4 overflow-y-auto "
+      style={{ height: "100%" }}
     >
       <Accordion
         defaultExpandedKeys={["1"]}

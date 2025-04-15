@@ -32,7 +32,7 @@ export default function Statistics({ other }: { other?: any }) {
   ];
 
   return (
-    <div className="flex w-full flex-col px-2 bg-slate-300  rounded-md  md:px-2 py-4 shadow-xl mx-2">
+    <div className="flex w-full flex-col px-2 bg-slate-300  rounded-md  md:px-2 py-4 shadow-xl mx-2 ">
       <div className="flex justify-between items-center ">
         <h2 className="text-lg font-bold">Latest Stats</h2>
       </div>
