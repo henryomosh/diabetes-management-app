@@ -18,7 +18,7 @@ export default async function Page() {
     <main>
       <div
         className="mt-0 grid grid-cols-1 gap-0 md:grid-cols-4 lg:grid-cols-8  overflow-y-auto"
-        style={{ maxHeight: "20%" }}
+        style={{ minHeight: "50rem" }}
       >
         <Suspense fallback={<LatestInvoicesSkeleton />}>
           <PageAccordion />
