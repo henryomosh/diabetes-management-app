@@ -30,11 +30,15 @@ export default async function StatusAlert() {
 
   return (
     <div className="flex flex-col gap-4  pb-12 mb-12">
-      <div className="bg-slate-300 rounded-md  md:px-2 py-2 shadow-xl  mb-4 border-[#292f46]  ">
-        <h1 className="text-2xl pb-2">Today</h1>
+      <div className="bg-slate-300 rounded-md  px-4 md:px-2 py-2 shadow-xl  mb-4 border-[#292f46]   ">
+        <h1 className="text-2xl pb-2">
+          <strong>Today</strong>
+        </h1>
         {/*Alerts Today*/}
         <div className="h-full md:overflow-y-auto">
-          <p className="px-6 py-6">{today.length > 0 ? "" : "No data today"}</p>
+          <p className={`px-6 py-6 ${today.length > 0 ? "hidden" : ""}`}>
+            {today.length > 0 ? "h" : "No data today"}
+          </p>
           {today.map((data, index) => (
             <div
               className="flex justify-between items-center mb-4 "
@@ -56,7 +60,9 @@ export default async function StatusAlert() {
               </div>
             </div>
           ))}
-          <h1 className="text-2xl pb-2">Others</h1>
+          <h1 className="text-2xl pb-2">
+            <strong>Others</strong>
+          </h1>
           {others.map((other, index) => (
             <div
               className="flex justify-between items-center mb-4 "

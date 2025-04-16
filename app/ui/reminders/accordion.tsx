@@ -7,7 +7,8 @@ import {
   MinusIcon,
   XMarkIcon,
   CircleStackIcon,
-  ShieldExclamationIcon
+  ShieldExclamationIcon,
+  PencilSquareIcon
 } from "@heroicons/react/20/solid";
 import {
   SyringeIcon,
@@ -38,10 +39,7 @@ export default function RemindersAccordion({ data }: { data?: any }) {
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
 
   return (
-    <div
-      className="flex w-full flex-col md:col-span-4 overflow-y-auto "
-      style={{ height: "100%" }}
-    >
+    <div className="flex w-full flex-col md:col-span-4 overflow-y-auto ">
       <Accordion
         defaultExpandedKeys={["1"]}
         itemClasses={itemClasses}
@@ -104,8 +102,8 @@ export default function RemindersAccordion({ data }: { data?: any }) {
         <AccordionItem
           key="2"
           aria-label="Chung Miller"
-          startContent={<CircleStackIcon className="w-6 text-indigo-600" />}
-          title="Latest Data"
+          startContent={<PencilSquareIcon className="w-6 text-indigo-600" />}
+          title="Doctor's Notes"
           indicator={({ isOpen }) =>
             isOpen ? (
               <XMarkIcon className="w-5 text-black" />
@@ -113,26 +111,7 @@ export default function RemindersAccordion({ data }: { data?: any }) {
               <PlusIcon className="w-5 text-black" />
             )
           }
-        >
-          <LatestData />
-        </AccordionItem>
-        <AccordionItem
-          key="3"
-          aria-label="Chung Miller"
-          startContent={
-            <ShieldExclamationIcon className="w-6 text-yellow-600" />
-          }
-          title="Diabetes treatment overview for the last 7 days"
-          indicator={({ isOpen }) =>
-            isOpen ? (
-              <XMarkIcon className="w-5 text-black" />
-            ) : (
-              <PlusIcon className="w-5 text-black" />
-            )
-          }
-        >
-          <Treatment />
-        </AccordionItem>
+        ></AccordionItem>
       </Accordion>
     </div>
   );

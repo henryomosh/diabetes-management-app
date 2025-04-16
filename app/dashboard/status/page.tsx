@@ -20,13 +20,13 @@ export default function Stats() {
               <ContentLeft />
             </Suspense>
           </div>
-          <div className="">
+          <div className="mb-4">
             <Suspense fallback={<LatestInvoicesSkeleton />}>
               <PageStatistics />
             </Suspense>
           </div>
         </div>
-        <div className="  pl-4 pr-1">
+        <div className="  md:pl-4 pl-2 pr-1 ">
           <Suspense fallback={<RevenueChartSkeleton />}>
             <StatusAlert />
           </Suspense>

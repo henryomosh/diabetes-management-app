@@ -26,25 +26,26 @@ export function ContentLeft({ idx }: { idx?: number }) {
   );
 
   return (
-    <div className="flex w-full flex-col bg-slate-300 rounded-md  md:px-4 py-4 shadow-xl mx-2 mb-4 ">
+    <div className="flex w-full flex-col bg-slate-300 rounded-md px-4 py-4 shadow-xl mx-2 mb-4 ">
       <div className="flex justify-between items-center ">
         <h2 className="text-lg font-bold">Log your latest data </h2>
       </div>
-      <div className="grid grid-cols-4 gap-2">
+      <div className="grid grid-cols-4 gap-2 ">
         {icons.map((icon, index) => (
-          <Card
-            key={index}
-            isPressable
-            shadow="sm"
-            onPress={() => {
-              onOpen();
-              setSelectedIndex(index);
-            }}
-            className="p-0"
-          >
-            <CardBody className="overflow-visible flex flex-col items-center justify-center ">
-              {icon.icon}
-              <p className="text-xs px-4 ">{icon.text}</p>
+          <Card key={index}>
+            {" "}
+            <Button
+              color="secondary"
+              endContent={icon.icon}
+              variant="shadow"
+              onPress={() => {
+                onOpen();
+                setSelectedIndex(index);
+              }}
+            >
+              {icon.text}
+            </Button>
+            <CardBody className="overflow-visible flex flex-col items-center justify-center p-0 ">
               {/* Modal */}
               <Modal
                 classNames={{
@@ -87,18 +88,25 @@ export function ContentLeft({ idx }: { idx?: number }) {
                           </div>
                           <div className="flex justify-between my-4">
                             <div></div>
-                            <Button
-                              className="px-12"
-                              type="submit"
-                              color="warning"
-                              isDisabled={isLoading}
-                            >
-                              {isLoading ? (
-                                <Spinner color="danger" size="md" />
-                              ) : (
-                                "Save"
-                              )}{" "}
-                            </Button>
+                            {isLoading ? (
+                              <Button
+                                className="px-12"
+                                type="submit"
+                                color="primary"
+                                isLoading
+                                disabled={isLoading}
+                              >
+                                Save
+                              </Button>
+                            ) : (
+                              <Button
+                                className="px-12"
+                                type="submit"
+                                color="primary"
+                              >
+                                Save
+                              </Button>
+                            )}
                           </div>
                         </form>
                       </ModalBody>

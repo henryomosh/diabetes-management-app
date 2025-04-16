@@ -15,7 +15,7 @@ import { ModalForm, FormInput, OtherInputs } from "./modals/forms";
 export const icons = [
   //HBA1C
   {
-    icon: <MonitorPressureIcon className=" h-10 w-10 fill-pink-700 " />,
+    icon: <MonitorPressureIcon className=" h-8 w-8 fill-default " />,
     text: "HbA1c",
     form: (
       <ModalForm
@@ -47,8 +47,8 @@ export const icons = [
   },
   // BP
   {
-    icon: <BloodPressureIcon className="h-10 w-10  fill-pink-700" />,
-    text: "Blood Pressure",
+    icon: <BloodPressureIcon className="h-8 w-8 fill-default" />,
+    text: "Bp",
     form: (
       <ModalForm
         input={
@@ -79,7 +79,7 @@ export const icons = [
   },
   // Carbs
   {
-    icon: <CarbsIcon className="h-10 w-10 fill-pink-700" />,
+    icon: <CarbsIcon className="h-8 w-8 fill-default" />,
     text: "Carbs",
     form: (
       <ModalForm
@@ -111,7 +111,7 @@ export const icons = [
   },
   // Calories
   {
-    icon: <CaloriesIcon className=" h-10 w-10  fill-pink-700" />,
+    icon: <CaloriesIcon className=" h-8 w-8 fill-default" />,
     text: "Protein",
     form: (
       <ModalForm
@@ -143,7 +143,7 @@ export const icons = [
   },
   // Cholestrol
   {
-    icon: <CholestrolIcon className="h-10 w-10  fill-pink-700" />,
+    icon: <CholestrolIcon className="h-8 w-8 fill-default" />,
     text: "Cholestrol",
     form: (
       <ModalForm
@@ -175,7 +175,7 @@ export const icons = [
   },
   // Glucose
   {
-    icon: <DropIcon className="h-10 w-10  fill-pink-700" />,
+    icon: <DropIcon className="h-8 w-8 fill-default" />,
     text: "Glucose",
     form: (
       <ModalForm
@@ -207,7 +207,7 @@ export const icons = [
   },
   // Insulin
   {
-    icon: <SyringeIcon className="h-10 w-10  fill-pink-700" />,
+    icon: <SyringeIcon className="h-8 w-8 fill-default" />,
     text: "Insulin",
     form: (
       <ModalForm
@@ -238,7 +238,7 @@ export const icons = [
     )
   },
   {
-    icon: <ExerciseIcon className="h-10 w-10  fill-pink-700" />,
+    icon: <ExerciseIcon className="h-8 w-8 fill-default" />,
     text: "Exercise",
     form: (
       <ModalForm
