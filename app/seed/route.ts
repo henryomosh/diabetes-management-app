@@ -227,7 +227,7 @@ async function seedOthers() {
       amount FLOAT NOT NULL,
       units VARCHAR(20) NOT NULL,
       time TIME NOT NULL,
-      date DATE NOT NULL
+      date TIMESTAMP NOT NULL
     );
   `;
   const li = [
@@ -238,7 +238,7 @@ async function seedOthers() {
       amount: 120,
       units: "bpm",
       time: "02:30",
-      date: "2026-04-10"
+      date: "2025-04-16T00:00:00.000Z"
     }
   ];
   const insertedOthers = await Promise.all(

@@ -13,7 +13,15 @@ import DoughnutChartWrapper from "@/app/ui/dashboard/overview/donut-chart";
 import LatestData from "@/app/ui/dashboard/overview/latest-data";
 import Treatment from "@/app/ui/dashboard/overview/treatment";
 
-export default function Overview() {
+export default function Overview({
+  data,
+  data2,
+  data3
+}: {
+  data?: any;
+  data2: any;
+  data3?: any;
+}) {
   const itemClasses = {
     base: "py-0 w-full",
     title: "font-normal text-sm",
@@ -28,7 +36,7 @@ export default function Overview() {
   return (
     <div
       className="flex w-full flex-col md:col-span-5 overflow-y-auto"
-      style={{ height: "31rem" }}
+      style={{ height: "50rem" }}
     >
       <Accordion
         defaultExpandedKeys={["1"]}
@@ -77,7 +85,7 @@ export default function Overview() {
           key="1"
           aria-label="Chung Miller"
           startContent={<ChartPieIcon className="w-6 text-green-600" />}
-          title="Glucose Overview"
+          title="Glucose Overview 7 days"
           indicator={({ isOpen }) =>
             isOpen ? (
               <XMarkIcon className="w-5 text-black" />
@@ -87,7 +95,7 @@ export default function Overview() {
           }
         >
           <div className="grid grid-cols-3 gap-0">
-            <DoughnutChartWrapper />
+            <DoughnutChartWrapper data={data} data2={data2} data3={data3} />
           </div>
         </AccordionItem>
         <AccordionItem

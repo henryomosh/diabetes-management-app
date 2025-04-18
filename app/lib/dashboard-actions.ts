@@ -50,6 +50,11 @@ export async function createOthers(prevState: State, formData: FormData) {
   const name = objValues[3][1];
   const units = objValues[5][1];
 
+  // dates
+  const utcDate = new Date(); // UTC time
+  const offset = utcDate.getTimezoneOffset() * 60000; // Offset in milliseconds
+  const localDate = new Date(utcDate.getTime() - offset);
+
   const user_id = 1;
   const other = {
     user_id: 1,
@@ -64,7 +69,7 @@ export async function createOthers(prevState: State, formData: FormData) {
   try {
     await sql`
           INSERT INTO others (user_id, label, name, amount, units, time, date)
-        VALUES (${other.user_id}, ${other.label}, ${other.name}, ${other.amount}, ${other.units}, ${other.time}, ${d})
+        VALUES (${other.user_id}, ${other.label}, ${other.name}, ${other.amount}, ${other.units}, ${other.time}, ${localDate})
         ON CONFLICT (id) DO NOTHING;
         `;
   } catch (error) {
