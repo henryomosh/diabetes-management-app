@@ -15,7 +15,6 @@ export default function DoughnutChartWrapper({
   data2?: any;
   data3?: any;
 }) {
-  console.log(data3);
   const chartData = {
     glucose: {
       labels: ["Normal", "Low", "High"],

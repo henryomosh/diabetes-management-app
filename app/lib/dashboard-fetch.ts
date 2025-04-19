@@ -18,13 +18,13 @@ export async function fetchOtherData() {
 export async function fechLatestOther() {
   try {
     const LatestGlucose =
-      await sql`SELECT * FROM others WHERE label = 'glucose' ORDER BY date DESC LIMIT 1;`;
+      await sql`SELECT * FROM others WHERE label = 'glucose' AND date::timestamp::date = CURRENT_DATE  ORDER BY date DESC LIMIT 1;`;
     const LatestIsulin =
-      await sql`SELECT * FROM others WHERE label = 'insulin' ORDER BY date DESC LIMIT 1;`;
+      await sql`SELECT * FROM others WHERE label = 'insulin' AND date::timestamp::date = CURRENT_DATE ORDER BY date DESC LIMIT 1;`;
     const LatestBp =
-      await sql`SELECT * FROM others WHERE label = 'bp' ORDER BY date DESC LIMIT 1;`;
+      await sql`SELECT * FROM others WHERE label = 'bp' AND date::timestamp::date = CURRENT_DATE ORDER BY date DESC LIMIT 1;`;
     const LatestHb1ac =
-      await sql`SELECT * FROM others WHERE label = 'hba1c' ORDER BY date DESC LIMIT 1;`;
+      await sql`SELECT * FROM others WHERE label = 'hba1c' AND date::timestamp::date = CURRENT_DATE ORDER BY date DESC LIMIT 1;`;
     const TodayGlucose =
       await sql`SELECT SUM(amount) FROM others WHERE label = 'glucose' AND date::timestamp::date = CURRENT_DATE`;
     const TodayInsulin =

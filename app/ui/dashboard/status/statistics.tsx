@@ -55,13 +55,17 @@ export default function Statistics({ other }: { other?: any }) {
           <div className="">
             <div className="flex ">
               <span className="">
-                <SyringeIcon className="h-6 w-6 fill-green-700" />
-              </span>{" "}
+                <SyringeIcon className="h-6 w-6 fill-green-700 pr-1" />
+              </span>
+              {"  "}
               <p>
                 <strong className="font-1000 text-xl">
                   {others[1][0].amount}
                 </strong>{" "}
-                <span className="text-xs">{others[1][0].units}</span>
+                <span className="text-xs">
+                  {""}
+                  {others[1][0].units}
+                </span>
               </p>
             </div>
             <p className="text-xs pl-8 ">{others[1][0].name}</p>

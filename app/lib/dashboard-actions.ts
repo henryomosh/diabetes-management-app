@@ -8,6 +8,7 @@ import { redirect } from "next/navigation";
 import { signIn } from "@/auth";
 import { AuthError } from "next-auth";
 import sql from "./db";
+import { now, getLocalTimeZone } from "@internationalized/date";
 
 // const sql = postgres(process.env.POSTGRES_URL!, { ssl: "require" });
 const FormSchema = z.object({
@@ -49,7 +50,7 @@ export async function createOthers(prevState: State, formData: FormData) {
   const label = objValues[4][1];
   const name = objValues[3][1];
   const units = objValues[5][1];
-
+  const localTime = now(getLocalTimeZone());
   // dates
   const utcDate = new Date(); // UTC time
   const offset = utcDate.getTimezoneOffset() * 60000; // Offset in milliseconds
@@ -62,8 +63,8 @@ export async function createOthers(prevState: State, formData: FormData) {
     name: name,
     amount: amount,
     units: units,
-    time: time,
-    date: date
+    time: formData.get("time"),
+    date: formData.get("date")
   };
 
   try {
@@ -72,6 +73,7 @@ export async function createOthers(prevState: State, formData: FormData) {
         VALUES (${other.user_id}, ${other.label}, ${other.name}, ${other.amount}, ${other.units}, ${other.time}, ${localDate})
         ON CONFLICT (id) DO NOTHING;
         `;
+    console.log(other.date);
   } catch (error) {
     return {
       error: error,

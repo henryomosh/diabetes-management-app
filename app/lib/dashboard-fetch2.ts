@@ -1,4 +1,4 @@
-import sql from "./db";
+import sql from "@/app/lib/db";
 
 export async function fetchChartGlucose() {
   try {

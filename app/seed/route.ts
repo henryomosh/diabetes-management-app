@@ -227,7 +227,7 @@ async function seedOthers() {
       amount FLOAT NOT NULL,
       units VARCHAR(20) NOT NULL,
       time TIME NOT NULL,
-      date TIMESTAMP NOT NULL
+      date TIMESTAMPTZ NOT NULL
     );
   `;
   const li = [

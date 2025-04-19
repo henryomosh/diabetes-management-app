@@ -51,7 +51,9 @@ export default async function StatusAlert() {
                 <div className="flex flex-col pl-2">
                   <p className="text-sm  ">{data.name}</p>
 
-                  <p className="text-xs ">{data.time}</p>
+                  <p className="text-xs ">
+                    {data.time.split(":").slice(0, -1).join(":")}
+                  </p>
                 </div>
               </div>
               <div className="flex flex-row justify-end">
