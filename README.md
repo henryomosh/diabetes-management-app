@@ -8,7 +8,7 @@ This application is built with Next.js, a react-based framework.
 
 ## Installation
 
-- Clone the application from -- Link --
+- Clone the application from: https://github.com/henryomosh/diabetes-management-app.git
   Install depedencies by running `pnpm install ` i.e you can use your preffered package manager though pnpm is recommended because it is faster.
 
 - Run `pnpm run dev` to run your local development server at http://localhost:3000
@@ -52,4 +52,4 @@ This section tracks the user's glucose level from morning to evening and indicat
 
 Reports section displays graphs of glucose and insulin levels over the week. It also allows generating the document in pdf format whcih can be shared with relevant health practioners.
 
-Application url can be found at :
+Application url can be found at : https://nextjs-dashboard-seven-drab-77.vercel.app/dashboard
