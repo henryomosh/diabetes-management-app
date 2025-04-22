@@ -10,6 +10,7 @@ import {
   ShieldExclamationIcon,
   PencilSquareIcon
 } from "@heroicons/react/20/solid";
+import DoctorNotes from "./accordion-items/doctor";
 import {
   SyringeIcon,
   DropIcon,
@@ -111,7 +112,9 @@ export default function RemindersAccordion({ data }: { data?: any }) {
               <PlusIcon className="w-5 text-black" />
             )
           }
-        ></AccordionItem>
+        >
+          <DoctorNotes />
+        </AccordionItem>
       </Accordion>
     </div>
   );

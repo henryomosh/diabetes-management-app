@@ -2,6 +2,7 @@
 
 import { LightBulbIcon } from "@heroicons/react/24/outline";
 import { Divider } from "@heroui/react";
+import DoctorNotes from "./doctor";
 
 export function ReminderAccordionItem({ data }: { data: any }) {
   let defaultData = [
@@ -268,9 +269,6 @@ export function ReminderAccordionItem({ data }: { data: any }) {
               </div>
             </div>
           ))}
-          <div className="pb-4">
-            <Divider />
-          </div>
         </div>
       </div>
     </div>

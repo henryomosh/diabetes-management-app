@@ -9,6 +9,7 @@ import { signIn } from "@/auth";
 import { AuthError } from "next-auth";
 import sql from "./db";
 import { now, getLocalTimeZone } from "@internationalized/date";
+import { signOut } from "@/auth";
 
 // const sql = postgres(process.env.POSTGRES_URL!, { ssl: "require" });
 const FormSchema = z.object({
@@ -83,4 +84,8 @@ export async function createOthers(prevState: State, formData: FormData) {
 
   revalidatePath("/dashboard/status");
   redirect("/dashboard/status");
+}
+
+export async function SignOutAction() {
+  await signOut({ redirectTo: "/" });
 }

@@ -19,10 +19,6 @@ export default function PatientCard() {
   return (
     <div className="px-2 pb-4 md:col-span-3">
       <Card className="w-100 rounded-sm">
-        <div className="p-4">
-          <Search placeholder="Find Patient..." />
-        </div>
-        <Divider />
         <CardHeader className="flex gap-3">
           <Avatar
             className="w-40 h-40 text-large mb-auto"
